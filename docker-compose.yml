@@ -25,3 +25,13 @@ services:
       - POSTGRES_DATABASE=app
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=pass
+  app:
+      container_name: app_simulator
+      image: app
+      restart: always
+      build: ./gate-simulator
+      ports:
+        - "9999:9999"
+      links:
+        - mysql
+        - postgres

@@ -19,7 +19,7 @@ public class CardPage {
     private final SelenideElement codField = $x("//input[@placeholder='999']");
     private final SelenideElement sendingButton = $(withText("Продолжить"));
     private final SelenideElement operationNotification = $(withText("Операция одобрена Банком"));
-    private final SelenideElement errorNotification = $("Ошибка! Банк отказал в проведении операции");
+    private final SelenideElement errorNotification = $(withText("Ошибка! Банк отказал в проведении операции"));
     private final SelenideElement errorNumberField = $x("/html/body/div/div/form/fieldset/div[1]/span/span/span[3]");
     private final SelenideElement errorMonthField = $x("/html/body/div/div/form/fieldset/div[2]/span/span[1]/span/span/span[3]");
     private final SelenideElement errorYearField = $x("/html/body/div/div/form/fieldset/div[2]/span/span[2]/span/span/span[3]");

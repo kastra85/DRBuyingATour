@@ -375,4 +375,21 @@ public class CreditTest {
         var creditInfo = BDHelper.getSuccessfulCredit().getResultCredit();
         Assertions.assertEquals("DECLINED", creditInfo);
     }
+
+    @Test
+    @DisplayName("Sending a form with the details of the missing card when paying by credit")
+    void SendingAFormWithTheDetailsOfTheMissingCardWhenPayingByCredit() {
+        DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.dashboardPageStarting();
+        dashboardPage.pressButtonCredit();
+        dashboardPage.creditPaymentHeader();
+        CardPage cardPage = new CardPage();
+        cardPage.fillFormCard(DataHelper.getMissingCardInfo());
+        cardPage.fillFormMonth(DataHelper.getDataMatch());
+        cardPage.fillFormYear(DataHelper.getDataYear());
+        cardPage.fillFormOwner(DataHelper.getValidOwner());
+        cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
+        cardPage.formButton();
+        cardPage.formWidgetError();
+    }
 }

@@ -102,7 +102,7 @@ public class DataHelper {
         return new CardInfo("4444 4444 4444 444");
     }
 
-    public static CardInfo getThirdCardInfo() {
+    public static CardInfo getMissingCardInfo() {
         return new CardInfo("4444 4444 4444 4443");
     }
 

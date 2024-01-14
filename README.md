@@ -30,11 +30,11 @@
 * Пользователи Linux, в зависимости от дистрибутива: [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/). Не забудьте так же про [Post Installation](https://docs.docker.com/install/linux/linux-postinstall/)
 * Пользователи Windows 7, Windows 8, неподдерживаемых версий Windows 10, Windows 11 и MacOS могут использовать виртуальную машину, предоставляемую Нетологией. [Инструкция по подключению к виртуальной машине Linux](./timeweb-instruction.md).
 
-После установки программ клонируем из удаленного репозитория CitHab проект на свой ПК и создаем локальный репозиторий (, далее запускаем его в следующем порядке:
+После установки программ клонируем командой `git clone` из удаленного репозитория CitHub проект на свой ПК и создаем локальный репозиторий (, далее запускаем его в следующем порядке:
 * Запуск Docker Desktop
 * Запуск контейнеров командой `docker compose up` в терминале IDEA
 * Запуск приложения командой `java -jar ./artifacts/aqa-shop.jar` в терминале IDEA
-* Запуск автоматизированных тестов командой `gradlew test` в терминале IDEA
+* Запуск втотестов командой `./gradlew test` в терминале IDEA
 
 ## Лицензия
 

@@ -43,8 +43,8 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
@@ -62,14 +62,14 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.formButton();
-        cardPage.formNumberFieldError();
-        cardPage.formMonthFieldError();
-        cardPage.formYearFieldError();
-        cardPage.formOwnerFieldErrorText();
-        cardPage.formCodFieldError();
+        cardPage.formNumberFieldError("Неверный формат");
+        cardPage.formMonthFieldError("Неверный формат");
+        cardPage.formYearFieldError("Неверный формат");
+        cardPage.formOwnerFieldError("Поле обязательно для заполнения");
+        cardPage.formCodFieldError("Неверный формат");
     }
 
     @Test
@@ -78,14 +78,14 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formFieldError();
+        cardPage.formNumberFieldError("Неверный формат");
     }
 
     @Test
@@ -94,14 +94,14 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formFieldError();
+        cardPage.formMonthFieldError("Неверный формат");
     }
 
     @Test
@@ -110,14 +110,14 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formFieldError();
+        cardPage.formYearFieldError("Неверный формат");
     }
 
     @Test
@@ -126,14 +126,14 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formOwnerFieldError();
+        cardPage.formOwnerFieldError("Поле обязательно для заполнения");
     }
 
     @Test
@@ -142,14 +142,14 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.formButton();
-        cardPage.formFieldError();
+        cardPage.formCodFieldError("Неверный формат");
     }
 
     @Test
@@ -158,8 +158,8 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getSecondCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
@@ -177,15 +177,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatchPlusTwelveMonths());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formMonthFieldErrorText();
+        cardPage.formMonthFieldError("Неверно указан срок действия карты");
     }
 
     @Test
@@ -194,15 +194,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getNotValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formOwnerFieldError();
+        cardPage.formOwnerFieldError("Поле обязательно для заполнения");
     }
 
     @Test
@@ -211,15 +211,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomInvalidSecurityCode());
         cardPage.formButton();
-        cardPage.formCodFieldError();
+        cardPage.formCodFieldError("Неверный формат");
     }
 
     @Test
@@ -228,15 +228,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getNotValidCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formNumberFieldError();
+        cardPage.formNumberFieldError("Неверный формат");
     }
 
     @Test
@@ -245,15 +245,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getNumberOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formOwnerFieldError();
+        cardPage.formOwnerFieldError("Поле обязательно для заполнения");
     }
 
     @Test
@@ -262,15 +262,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getZeroDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formYearFieldError();
+        cardPage.formYearFieldError("Истёк срок действия карты");
     }
 
     @Test
@@ -279,15 +279,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getZeroCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formNumberFieldError();
+        cardPage.formNumberFieldError("Неверный формат");
     }
 
     @Test
@@ -296,15 +296,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getZeroDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formMonthFieldError();
+        cardPage.formMonthFieldError("Неверно указан срок действия карты");
     }
 
     @Test
@@ -313,15 +313,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getZeroSecurityCode());
         cardPage.formButton();
-        cardPage.formCodFieldError();
+        cardPage.formCodFieldError("Неверный формат");
     }
 
     @Test
@@ -330,15 +330,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYearMinusSixYears());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formYearFieldError();
+        cardPage.formYearFieldError("Истёк срок действия карты");
     }
 
     @Test
@@ -347,15 +347,15 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYearPlusSixYears());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formYearFieldError();
+        cardPage.formYearFieldError("Неверно указан срок действия карты");
     }
 
     @Test
@@ -364,8 +364,8 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getSecondCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
@@ -383,8 +383,8 @@ public class CardTest {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
         dashboardPage.pressButtonCard();
-        dashboardPage.cardPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCard();
+        cardPage.cardPaymentHeader();
         cardPage.fillFormCard(DataHelper.getMissingCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());

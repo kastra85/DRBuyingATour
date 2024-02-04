@@ -52,8 +52,8 @@
 `./gradlew clean test "-Ddb.url=jdbc:postgresql://localhost:5432/app"` для СУБД PostgreSQL
 в новой вкладке терминала IDEA
 * Запуск отчета Allure командой `./gradlew allurereport` в новой вкладке терминала IDEA
-* Просмотр отчетов (файл index.html) в папке [test](build%2Freports%2Ftests%2Ftest) для Gradle и 
-[allureReport](build%2Freports%2Fallure-report%2FallureReport) для Allure
+* Просмотр отчетов в файле index.html по адресу `./build/reports/tests` для Gradle и 
+по адресу `./build/reports/allure-report` для Allure
 
 ## Лицензия
 

@@ -16,7 +16,9 @@ import static ru.netology.data.BDHelper.*;
 public class CreditTest {
 
     @BeforeAll
-    static void setUpAll() { SelenideLogger.addListener("allure", new AllureSelenide()); }
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
 
     @AfterEach
     void tearDown() {

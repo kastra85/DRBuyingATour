@@ -30,9 +30,13 @@ public class CardPage {
     private final SelenideElement errorCodField = $x("//span[text()='CVC/CVV']/parent::*/span[@class='input__sub']");
 
 
-    public void cardPaymentHeader() { headerCard.shouldBe(visible); }
+    public void cardPaymentHeader() {
+        headerCard.shouldBe(visible);
+    }
 
-    public void creditPaymentHeader() { headerCredit.shouldBe(visible); }
+    public void creditPaymentHeader() {
+        headerCredit.shouldBe(visible);
+    }
 
     public void fillFormCard(DataHelper.CardInfo cardInfo) {
         numberField.setValue(cardInfo.getCardNumber());
@@ -66,10 +70,12 @@ public class CardPage {
         errorNotification.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public void formNumberFieldError(String expectedText) { errorNumberField.shouldHave(exactText(expectedText)).shouldBe(visible);
+    public void formNumberFieldError(String expectedText) {
+        errorNumberField.shouldHave(exactText(expectedText)).shouldBe(visible);
     }
 
-    public void formMonthFieldError(String expectedText) { errorMonthField.shouldHave(exactText(expectedText)).shouldBe(visible);
+    public void formMonthFieldError(String expectedText) {
+        errorMonthField.shouldHave(exactText(expectedText)).shouldBe(visible);
     }
 
     public void formYearFieldError(String expectedText) {

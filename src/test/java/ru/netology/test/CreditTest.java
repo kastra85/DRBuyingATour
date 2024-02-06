@@ -41,9 +41,8 @@ public class CreditTest {
     void sendingAFormWithValidValuesInTheFieldsWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
@@ -60,15 +59,14 @@ public class CreditTest {
     void sendingAFormWithEmptyFieldsWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.formButton();
-        cardPage.formNumberFieldError();
-        cardPage.formMonthFieldError();
-        cardPage.formYearFieldError();
-        cardPage.formOwnerFieldErrorText();
-        cardPage.formCodFieldError();
+        cardPage.formNumberFieldError("Неверный формат");
+        cardPage.formMonthFieldError("Неверный формат");
+        cardPage.formYearFieldError("Неверный формат");
+        cardPage.formOwnerFieldError("Поле обязательно для заполнения");
+        cardPage.formCodFieldError("Неверный формат");
     }
 
     @Test
@@ -76,15 +74,14 @@ public class CreditTest {
     void sendingAFormWithAnEmptyCardNumberFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formFieldError();
+        cardPage.formNumberFieldError("Неверный формат");
     }
 
     @Test
@@ -92,15 +89,14 @@ public class CreditTest {
     void sendingAFormWithAnEmptyMonthFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formFieldError();
+        cardPage.formMonthFieldError("Неверный формат");
     }
 
     @Test
@@ -108,15 +104,14 @@ public class CreditTest {
     void sendingAFormWithAnEmptyYearFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formFieldError();
+        cardPage.formYearFieldError("Неверный формат");
     }
 
     @Test
@@ -124,15 +119,14 @@ public class CreditTest {
     void sendingAFormWithAnEmptyOwnerFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formOwnerFieldError();
+        cardPage.formOwnerFieldError("Поле обязательно для заполнения");
     }
 
     @Test
@@ -140,25 +134,23 @@ public class CreditTest {
     void sendingAFormWithAnEmptyCVCCVVFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.formButton();
-        cardPage.formFieldError();
+        cardPage.formCodFieldError("Неверный формат");
     }
 
     @Test
     @DisplayName("Sending a form with the details of the rejected card when paying by credit card")
-    void SendingAFormWithTheDetailsOfTheRejectedCardWhenPayingByCreditCard() {
+    void sendingAFormWithTheDetailsOfTheRejectedCardWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getSecondCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
@@ -172,199 +164,187 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with an invalid value in the month field when paying by credit card")
-    void SendingAFormWithAnInvalidValueInTheMonthFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAnInvalidValueInTheMonthFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatchPlusTwelveMonths());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formMonthFieldErrorText();
+        cardPage.formMonthFieldError("Неверно указан срок действия карты");
     }
 
     @Test
     @DisplayName("Sending a form with an invalid value in the owner field when paying by credit card")
-    void SendingAFormWithAnInvalidValueInTheOwnerFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAnInvalidValueInTheOwnerFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getNotValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formOwnerFieldError();
+        cardPage.formOwnerFieldError("Поле обязательно для заполнения");
     }
 
     @Test
     @DisplayName("Sending a form with an invalid value in the CVC/CVV field when paying by credit card")
-    void SendingAFormWithAnInvalidValueInTheCVCCVVFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAnInvalidValueInTheCVCCVVFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomInvalidSecurityCode());
         cardPage.formButton();
-        cardPage.formCodFieldError();
+        cardPage.formCodFieldError("Неверный формат");
     }
 
     @Test
     @DisplayName("Sending a form with a fifteen-digit number in the card field when paying by credit card")
-    void SendingAFormWithAFifteenDigitNumberInTheCardFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAFifteenDigitNumberInTheCardFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getNotValidCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formNumberFieldError();
+        cardPage.formNumberFieldError("Неверный формат");
     }
 
     @Test
     @DisplayName("Sending a form with a numeric value in the owner field when paying by credit card")
-    void SendingAFormWithANumericValueInTheOwnerFieldWhenPayingByCreditCard() {
+    void sendingAFormWithANumericValueInTheOwnerFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getNumberOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formOwnerFieldError();
+        cardPage.formOwnerFieldError("Поле обязательно для заполнения");
     }
 
     @Test
     @DisplayName("Sending a form with a zero value in the year field when paying by credit card")
-    void SendingAFormWithAZeroValueInTheYearFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAZeroValueInTheYearFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getZeroDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formYearFieldError();
+        cardPage.formYearFieldError("Истёк срок действия карты");
     }
 
     @Test
     @DisplayName("Sending a form with a zero in the card field when paying by credit card")
-    void SendingAFormWithAZeroInTheCardFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAZeroInTheCardFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getZeroCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formNumberFieldError();
+        cardPage.formNumberFieldError("Неверный формат");
     }
 
     @Test
     @DisplayName("Sending a form with a zero value in the month field when paying by credit card")
-    void SendingAFormWithAZeroValueInTheMonthFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAZeroValueInTheMonthFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getZeroDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formMonthFieldError();
+        cardPage.formMonthFieldError("Неверно указан срок действия карты");
     }
 
     @Test
     @DisplayName("Sending a form with a zero value in the CVC/CVV field when paying by credit card")
-    void SendingAFormWithAZeroValueInTheCVCCVVFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAZeroValueInTheCVCCVVFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getZeroSecurityCode());
         cardPage.formButton();
-        cardPage.formCodFieldError();
+        cardPage.formCodFieldError("Неверный формат");
     }
 
     @Test
     @DisplayName("Sending a form with expired card data when paying by credit card")
-    void SendingAFormWithExpiredCardDataWhenPayingByCreditCard() {
+    void sendingAFormWithExpiredCardDataWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYearMinusSixYears());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formYearFieldError();
+        cardPage.formYearFieldError("Истёк срок действия карты");
     }
 
     @Test
     @DisplayName("Sending a form with an invalid value in the year field when paying by credit card")
-    void SendingAFormWithAnInvalidValueInTheYearFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAnInvalidValueInTheYearFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYearPlusSixYears());
         cardPage.fillFormOwner(DataHelper.getValidOwner());
         cardPage.fillFormSecurityCod(DataHelper.getRandomSecurityCode());
         cardPage.formButton();
-        cardPage.formYearFieldError();
+        cardPage.formYearFieldError("Неверно указан срок действия карты");
     }
 
     @Test
     @DisplayName("Sending a form with the details of the rejected card when paying by credit card without a message")
-    void SendingAFormWithTheDetailsOfTheRejectedCardWhenPayingByCreditCardWithoutAMessage() throws InterruptedException {
+    void sendingAFormWithTheDetailsOfTheRejectedCardWhenPayingByCreditCardWithoutAMessage() throws InterruptedException {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getSecondCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());
@@ -378,12 +358,11 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with the details of the missing card when paying by credit")
-    void SendingAFormWithTheDetailsOfTheMissingCardWhenPayingByCredit() {
+    void sendingAFormWithTheDetailsOfTheMissingCardWhenPayingByCredit() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
-        dashboardPage.creditPaymentHeader();
-        CardPage cardPage = new CardPage();
+        CardPage cardPage = dashboardPage.pressButtonCredit();
+        cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getMissingCardInfo());
         cardPage.fillFormMonth(DataHelper.getDataMatch());
         cardPage.fillFormYear(DataHelper.getDataYear());

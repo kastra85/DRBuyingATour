@@ -6,8 +6,6 @@ services:
     ports:
       - '3306:3306'
     container_name: db-mysql
-    volumes:
-      - ./data:/var/lib/mysql
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_DATABASE=app
@@ -19,8 +17,6 @@ services:
     ports:
       - "5432:5432"
     container_name: db-postgres
-    volumes:
-      - ./data:/var/lib/postgres
     environment:
       - POSTGRES_DATABASE=app
       - POSTGRES_USER=app

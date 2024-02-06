@@ -41,7 +41,6 @@ public class CreditTest {
     void sendingAFormWithValidValuesInTheFieldsWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -60,7 +59,6 @@ public class CreditTest {
     void sendingAFormWithEmptyFieldsWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.formButton();
@@ -76,7 +74,6 @@ public class CreditTest {
     void sendingAFormWithAnEmptyCardNumberFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormMonth(DataHelper.getDataMatch());
@@ -92,7 +89,6 @@ public class CreditTest {
     void sendingAFormWithAnEmptyMonthFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -108,7 +104,6 @@ public class CreditTest {
     void sendingAFormWithAnEmptyYearFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -124,7 +119,6 @@ public class CreditTest {
     void sendingAFormWithAnEmptyOwnerFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -140,7 +134,6 @@ public class CreditTest {
     void sendingAFormWithAnEmptyCVCCVVFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -153,10 +146,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with the details of the rejected card when paying by credit card")
-    void SendingAFormWithTheDetailsOfTheRejectedCardWhenPayingByCreditCard() {
+    void sendingAFormWithTheDetailsOfTheRejectedCardWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getSecondCardInfo());
@@ -172,10 +164,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with an invalid value in the month field when paying by credit card")
-    void SendingAFormWithAnInvalidValueInTheMonthFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAnInvalidValueInTheMonthFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -189,10 +180,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with an invalid value in the owner field when paying by credit card")
-    void SendingAFormWithAnInvalidValueInTheOwnerFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAnInvalidValueInTheOwnerFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -206,10 +196,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with an invalid value in the CVC/CVV field when paying by credit card")
-    void SendingAFormWithAnInvalidValueInTheCVCCVVFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAnInvalidValueInTheCVCCVVFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -223,10 +212,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with a fifteen-digit number in the card field when paying by credit card")
-    void SendingAFormWithAFifteenDigitNumberInTheCardFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAFifteenDigitNumberInTheCardFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getNotValidCardInfo());
@@ -240,10 +228,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with a numeric value in the owner field when paying by credit card")
-    void SendingAFormWithANumericValueInTheOwnerFieldWhenPayingByCreditCard() {
+    void sendingAFormWithANumericValueInTheOwnerFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -257,10 +244,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with a zero value in the year field when paying by credit card")
-    void SendingAFormWithAZeroValueInTheYearFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAZeroValueInTheYearFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -274,10 +260,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with a zero in the card field when paying by credit card")
-    void SendingAFormWithAZeroInTheCardFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAZeroInTheCardFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getZeroCardInfo());
@@ -291,10 +276,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with a zero value in the month field when paying by credit card")
-    void SendingAFormWithAZeroValueInTheMonthFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAZeroValueInTheMonthFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -308,10 +292,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with a zero value in the CVC/CVV field when paying by credit card")
-    void SendingAFormWithAZeroValueInTheCVCCVVFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAZeroValueInTheCVCCVVFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -325,10 +308,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with expired card data when paying by credit card")
-    void SendingAFormWithExpiredCardDataWhenPayingByCreditCard() {
+    void sendingAFormWithExpiredCardDataWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -342,10 +324,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with an invalid value in the year field when paying by credit card")
-    void SendingAFormWithAnInvalidValueInTheYearFieldWhenPayingByCreditCard() {
+    void sendingAFormWithAnInvalidValueInTheYearFieldWhenPayingByCreditCard() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getFirstCardInfo());
@@ -359,10 +340,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with the details of the rejected card when paying by credit card without a message")
-    void SendingAFormWithTheDetailsOfTheRejectedCardWhenPayingByCreditCardWithoutAMessage() throws InterruptedException {
+    void sendingAFormWithTheDetailsOfTheRejectedCardWhenPayingByCreditCardWithoutAMessage() throws InterruptedException {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getSecondCardInfo());
@@ -378,10 +358,9 @@ public class CreditTest {
 
     @Test
     @DisplayName("Sending a form with the details of the missing card when paying by credit")
-    void SendingAFormWithTheDetailsOfTheMissingCardWhenPayingByCredit() {
+    void sendingAFormWithTheDetailsOfTheMissingCardWhenPayingByCredit() {
         DashboardPage dashboardPage = new DashboardPage();
         dashboardPage.dashboardPageStarting();
-        dashboardPage.pressButtonCredit();
         CardPage cardPage = dashboardPage.pressButtonCredit();
         cardPage.creditPaymentHeader();
         cardPage.fillFormCard(DataHelper.getMissingCardInfo());
